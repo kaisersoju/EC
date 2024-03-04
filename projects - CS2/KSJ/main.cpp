@@ -1,4 +1,41 @@
 #include "../../cs2/shared/shared.h"
+#include <stdio.h>
+
+namespace client
+{
+        void mouse_move(int x, int y)
+	{
+         	cs::input::move(x, y);
+	}
+
+        void mouse1_down(void)
+	{
+        }
+
+        void mouse1_up(void)
+	{
+        }
+
+        void DrawRect(void *hwnd, int x, int y, int w, int h, unsigned char r, unsigned char g, unsigned char b)
+	{
+        }
+
+        void DrawFillRect(void *hwnd, int x, int y, int w, int h, unsigned char r, unsigned char g, unsigned char b)
+	{
+        }
+}
+
+
+int main(int argc, char **argv)
+{
+ 	while (1)
+	{
+         	cs2::run();
+	}
+        return 0;
+}
+/*
+#include "../../cs2/shared/shared.h"
 #include "../../library/SDL3/include/SDL3/SDL.h"
 
 SDL_Renderer *sdl_renderer;
@@ -38,7 +75,7 @@ namespace client
 		rect.h = (float)h;
 		SDL_SetRenderDrawColor(sdl_renderer, r, g, b, 20);
 		SDL_RenderFillRect(sdl_renderer, &rect);
-		*/
+		*/ /*
 	}
 
 	void DrawFillRect(void *hwnd, int x, int y, int w, int h, unsigned char r, unsigned char g, unsigned char b)
@@ -101,4 +138,4 @@ int main(void)
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
-
+*/

@@ -94,9 +94,9 @@ inline void features::update_settings(void)
 
 
 #ifdef _KERNEL_MODE
-	config::visuals_enabled = 1;
+	config::visuals_enabled = 0;
 #else
-	config::visuals_enabled = 1;
+	config::visuals_enabled = 0;
 #endif
 
 
@@ -156,7 +156,7 @@ inline void features::update_settings(void)
 		break;
 	//
 	// mouse1 aimkey, mouse5 triggerkey
-	//
+	/*/
 	case 250:
 		config::aimbot_button     = 317;
 		config::triggerbot_button = 321;
@@ -193,12 +193,12 @@ inline void features::update_settings(void)
 		config::triggerbot_button = 321;
 		config::aimbot_fov        = 4.5f;
 		config::aimbot_smooth     = 2.5f;
-		break;
+		break; */
 	default:
-		config::aimbot_button     = 317;
+		config::aimbot_button     = 320;
 		config::triggerbot_button = 321;
-		config::aimbot_fov        = 2.0f;
-		config::aimbot_smooth     = 5.0f;
+		config::aimbot_fov        = 3.0f;
+		config::aimbot_smooth     = (float)random_number(25, 100) / 10.0f;
 		config::visuals_enabled   = 0;
 		break;
 	}
@@ -677,6 +677,10 @@ static void features::get_best_target(BOOL ffa, QWORD local_controller, QWORD lo
 			*target  = player;
 			aimpos   = head;
 			angle    = best_angle;
+		}
+		if (fov < 3.0f)
+		{
+			printf ("[!] sound esp \a\n");
 		}
 	}
 	
